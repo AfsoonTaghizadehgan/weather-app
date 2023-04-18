@@ -70,7 +70,7 @@ export default function Weather(props) {
         return(
             <div >
                 <br></br>
-                <p>Please enter a valid city</p>
+                <p>City Was Not Found, Please enter a valid city...</p>
             </div>
         )
     }    
