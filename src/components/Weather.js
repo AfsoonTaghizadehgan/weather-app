@@ -1,6 +1,6 @@
 import '../App.css';
 import React from 'react';
-//import partialCloud from './images/partialCloud.png'
+// import partialCloud from './images/partialCloud.png'
 
 export default function Weather(props) {
 
@@ -12,8 +12,9 @@ export default function Weather(props) {
         description:"",
         name:""
         })
-        const [hasError, setHasError] = React.useState(false);
+    const [hasError, setHasError] = React.useState(false);
 
+    
     React.useEffect(()=>{
         const fetchData = async () => {
             setHasError(false)
@@ -30,7 +31,6 @@ export default function Weather(props) {
                         name: data.name,
                         humidity: data.main.humidity
                         }))
-                    console.log(data)
                 }  
                 else{
                     setWeatherData("")
@@ -42,25 +42,26 @@ export default function Weather(props) {
     fetchData();
 }, [props.city, weatherData.temp])
 
+    
+
     if(hasError === false){    
         return(
-            <main className=''
-            // style={{ 
-            //     backgroundImage: `url(${partialCloud})` 
-            //   }}
-            >
-                <div className='city--form'>
-                    {/* <img src={partialCloud}></img> */}
+            <main >
+                <div>
                     { props.city!=="" &&
-                    <div >
-                        <h2>{props.city}</h2>
-                        <p>{weatherData.description}</p>
-                        <p>{weatherData.name}</p>
-                        <p>{weatherData.temp}</p>
-                        <p>{weatherData.feelsLike}</p>
-                        <p>{weatherData.humidity}</p>
-                        <p>{weatherData.windSpeed}</p>
-                    </div>}
+                    <div className='Weather-data'>
+                        <h1>{weatherData.name}</h1>
+                        <h2>{weatherData.temp}ºC</h2>
+                        <p>feels like: {weatherData.feelsLike}ºC</p>
+                        <div>{props.setDesc(weatherData.description)}</div>
+
+                        <div className='extra-container'>
+                            <div className='extra humidity'>Humidity: {weatherData.humidity}%</div>
+                            <div className='extra wind'>Wind Speed:{weatherData.windSpeed} km/h </div>
+                        </div>
+                        
+                      </div>  
+                    }
         
             </div>
         </main>
@@ -75,6 +76,5 @@ export default function Weather(props) {
         )
     }    
 
-   
 
 }
