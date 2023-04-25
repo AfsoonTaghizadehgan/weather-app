@@ -7,6 +7,10 @@
   
   
 }
+.title{
+  font-family: 'Bradley Hand';
+  color: #062242;
+}
 
 .city--input{
   background-size: 25px 25px;
