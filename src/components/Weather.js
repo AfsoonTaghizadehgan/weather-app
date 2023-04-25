@@ -50,10 +50,10 @@ export default function Weather(props) {
                 <div>
                     { props.city!=="" &&
                     <div className='Weather-data'>
-                        <h1>{weatherData.name}</h1>
-                        <h2>{weatherData.temp}ºC</h2>
-                        <p>feels like: {weatherData.feelsLike}ºC</p>
-                        <div>{props.setDesc(weatherData.description)}</div>
+                        <h1 className='name'>{weatherData.name}</h1>
+                        <h2 className='temp'>{weatherData.temp}ºC</h2>
+                        <p className='feelslike'>feels like: {weatherData.feelsLike}ºC</p>
+                        <div className='description'>{props.setDesc(weatherData.description)}</div>
 
                         <div className='extra-container'>
                             <div className='extra humidity'>Humidity: {weatherData.humidity}%</div>

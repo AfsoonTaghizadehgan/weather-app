@@ -24,8 +24,24 @@
   align-content: space-evenly;
   /* border: 2px solid rgb(248, 241, 228); */
   border-radius: 20px;
+  padding-bottom: 0;
+  font-family:cursive;
+}
+.name{
+  margin-top: 5%;
+  font-family: 'Bradley Hand';
+  font-size: 360%;
+  text-transform: uppercase;
+}
+.temp{
+  margin-bottom: 0;
+}
+.feelslike{
+  margin-top: 15%;
+  margin-top: 0;
 }
 .extra-container {
+  
   display: flex;
 
 }
