@@ -15,7 +15,7 @@ function App() {
   const [city, setCity]= React.useState("")
   const [description, setDescription]= React.useState("")
 
-  let inputStyle=""
+  let inputStyle=`url(${GeneralImage})`
 
   function setCityInput(event){
     if (event.key === 'Enter') {
@@ -24,38 +24,38 @@ function App() {
   }
 }
 
-  function setDesc(desc){
-    setDescription(desc)
+  function setDesc(desc, error){
+    if(error === false){
+      setDescription(desc)
+    }
+    else(
+      setDescription("")
+    )
     return(
       <h3>{description}</h3>
     )
   }
+  
 
-  if(city!=="" && description.includes("clouds")){
-    inputStyle=`url(${PartialCloud})`
-    
+  if(city!==""){
+    if(description.includes("clouds")){
+      inputStyle=`url(${PartialCloud})`  
+    }
+    else if((description.includes("sun")) ||(description.includes("sky"))){
+      inputStyle=`url(${Sun})`
+    }
+    else if(description.includes("cloudy")){
+      inputStyle=`url(${Cloudy})`
+   }
+    else if((description.includes("rain")) ||(description.includes("drizzle"))){
+      inputStyle=`url(${Rain})`
+   }
+    else if(description.includes("snow")){
+      inputStyle=`url(${Snow})`
   }
-  else if(city!=="" &&  ((description.includes("sun")) ||(description.includes("sky") ))){
-    inputStyle=`url(${Sun})`
-    
-  }
-  else if(city!=="" &&  description.includes("cloudy")){
-    inputStyle=`url(${Cloudy})`
-    
-  }
-  else if(city!=="" &&  ((description.includes("rain")) ||(description.includes("drizzle") ))){
-    inputStyle=`url(${Rain})`
-    
-  }
-  else if(city!=="" &&  description.includes("snow")){
-    inputStyle=`url(${Snow})`
-    
-  }
-  else{
-    inputStyle=`url(${GeneralImage})`
-  }
+}
 
-
+  
   return (
     <div className="App" 
     style={{ backgroundImage: inputStyle}}
