@@ -1,1 +1,1 @@
-![plot](./src/Components/Images/Application.JPG)
+![plot](./src/components/images/Application.JPG)
