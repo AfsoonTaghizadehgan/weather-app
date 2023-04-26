@@ -43,14 +43,14 @@ function App() {
 
   //different weather statement changed the inputStyle
   if(city!==""){
-    if(description.includes("clouds")){
-      inputStyle=`url(${PartialCloud})`  
+    if(description=== ("overcast clouds")){
+      inputStyle=`url(${Cloudy})`  
     }
     else if((description.includes("sun")) ||(description.includes("sky"))){
       inputStyle=`url(${Sun})`
     }
-    else if(description.includes("cloudy")){
-      inputStyle=`url(${Cloudy})`
+    else if(description.includes("cloud")){
+      inputStyle=`url(${PartialCloud})`
    }
     else if((description.includes("rain")) ||(description.includes("drizzle"))){
       inputStyle=`url(${Rain})`
