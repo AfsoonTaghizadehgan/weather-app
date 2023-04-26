@@ -1,7 +1,8 @@
 import '../App.css';
 import React from 'react';
-//import partialCloud from './images/partialCloud.png'
 
+
+//WeatherInput which handles the input property, and the Application title
 export default function Weatherinput(props) {
   const style={
     width:'70%',

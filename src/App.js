@@ -10,6 +10,12 @@ import Cloudy from './components/images/cloudy.png'
 import Rain from './components/images/rain.png'
 import Snow from './components/images/snow.png'
 
+// Application has two components, one is for taking city input, and the other is for connecting
+// with Api and returning weather information.
+//first city name is returned from weatherinput component, and send back to the weather component
+//weather description is returned from weather component for setting up the background image based
+//on the weather statements. 
+
 function App() {
   
   const [city, setCity]= React.useState("")
@@ -17,6 +23,7 @@ function App() {
 
   let inputStyle=`url(${GeneralImage})`
 
+  //function for setting up the city name when user uses the "Enter" key after writing their desirable city
   function setCityInput(event){
     if (event.key === 'Enter') {
     // 👇 Get input value
@@ -24,19 +31,17 @@ function App() {
   }
 }
 
-  function setDesc(desc, error){
-    if(error === false){
+//function for setting up description to change the background image
+  function setDesc(desc){
       setDescription(desc)
-    }
-    else(
-      setDescription("")
-    )
+
     return(
       <h3>{description}</h3>
     )
   }
   
 
+  //different weather statement changed the inputStyle
   if(city!==""){
     if(description.includes("clouds")){
       inputStyle=`url(${PartialCloud})`  
@@ -55,7 +60,7 @@ function App() {
   }
 }
 
-  
+  //App html which is consisted of two components
   return (
     <div className="App" 
     style={{ backgroundImage: inputStyle}}
